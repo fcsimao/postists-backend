@@ -3,7 +3,7 @@ export const createAccount = async (event) => {
     return {
       statuscode: 200,
       body: JSON.stringify({
-        message: 'Conta criada com Sucesso',
+        message: 'create account works',
         input: event,
       }),
     }
