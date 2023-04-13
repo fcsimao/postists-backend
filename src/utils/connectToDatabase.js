@@ -2,7 +2,7 @@ import mongoose from 'mongoose'
 
 mongoose.Promise = global.Promise
 
-const isConnected = null
+let isConnected = null
 
 export default async (url = process.env.MONGO_URL) => {
   if (isConnected) return Promise.resolve()

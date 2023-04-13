@@ -8,4 +8,3 @@ const Userschema = new mongoose.Schema({
 })
 
 export default mongoose.models.User || mongoose.model('User', Userschema)
-
