@@ -8,8 +8,8 @@ const DataSchema = new mongoose.Schema({
 const BoardSchema = new mongoose.Schema({
   name: { type: String, required: true },
   owner: { type: mongoose.Schema.Types.ObjectId, required: true, ref: 'User' },
-  createdDate:{ type: Date, required: true },
-  updatedDate:{ type: Date, required: true },
+  createdDate: { type: Date, required: true },
+  updatedDate: { type: Date, required: true },
   data: {
     type: [DataSchema],
     required: true,

@@ -6,7 +6,7 @@ const generatePolicy = (principalId, effect, resource, decoded) => {
     const statementOne = {
       Action: 'execute-api:Invoke',
       Effect: effect,
-      Resource: resource
+      Resource: resource,
     }
     const policyDocument = {
       Version: '2012-10-17',
@@ -19,4 +19,3 @@ const generatePolicy = (principalId, effect, resource, decoded) => {
 }
 
 export default generatePolicy
-
