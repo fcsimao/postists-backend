@@ -12,7 +12,7 @@ export const created = (data) => {
   }
 }
 
-export const badrequest = (data) => {
+export const badRequest = (data) => {
   return {
     statusCode: 400,
     body: JSON.stringify(data),
