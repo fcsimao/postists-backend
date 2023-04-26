@@ -8,7 +8,7 @@ import generatePolicy from '../../utils/generatePolicy'
 const SALT = 8
 const createLoginToken = (data) => {
   return jwt.sign({
-    id: data.id,
+    id: data._id,
     firstName: data.firstName,
     email: data.email,
   }, process.env.LOGIN_TOKEN_SECRET)
