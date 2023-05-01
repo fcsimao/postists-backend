@@ -1,9 +1,10 @@
+/* eslint-disable import/extensions */
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 
-import UserSchema from './schema'
-import connectToDatabase from '../../utils/connectToDatabase'
-import generatePolicy from '../../utils/generatePolicy'
+import UserSchema from './schema.js'
+import connectToDatabase from '../../utils/connectToDatabase.js'
+import generatePolicy from '../../utils/generatePolicy.js'
 
 const SALT = 8
 const createLoginToken = (data) => {
@@ -16,7 +17,7 @@ const createLoginToken = (data) => {
 export const createUser = async (userData) => {
   await connectToDatabase()
   const passwordHash = bcrypt.hashSync(userData.password, SALT)
-  const user = await UserSchema.create({ ...userData, passwordHash })
+  const user = await UserSchema.create({ ...userData, password: passwordHash })
   return createLoginToken(user)
 }
 

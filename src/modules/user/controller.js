@@ -1,9 +1,10 @@
-import { createUser, loginService, userAuthorizer } from './service'
+/* eslint-disable import/extensions */
+import { createUser, loginService, userAuthorizer } from './service.js'
 import {
   ok, created, serverError, badRequest,
-} from '../../utils/responses'
+} from '../../utils/responses.js'
 
-const AUTHORIZATION_KEY = 'autorization'
+const AUTHORIZATION_KEY = 'authorization'
 
 export const createAccount = async (event) => {
   try {

@@ -8,8 +8,7 @@ export default async (url = process.env.MONGO_URL) => {
   if (isConnected) return Promise.resolve()
 
   const db = await mongoose.connect(url, {
-    userNewUrlParser: true,
-    useNewCreateIndex: true,
+    useNewUrlParser: true,
     useUnifiedTopology: true,
   })
 

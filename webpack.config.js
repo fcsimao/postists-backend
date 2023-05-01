@@ -1,12 +1,13 @@
-const sLsw = require('serverless-webpack')
+const { lib } = require('serverless-webpack')
 const nodeExternals = require('webpack-node-externals')
 
 module.exports = {
-  entry: sLsw.lib.entries,
+
+  entry: lib.entries,
   target: 'node',
   devtool: 'source-map',
   externals: [nodeExternals()],
-  mode: sLsw.lib.webpack.isLocal ? 'development' : 'production',
+  mode: lib.webpack.isLocal ? 'development' : 'production',
   optimization: {
     minimize: false,
   },
@@ -23,4 +24,5 @@ module.exports = {
       },
     ],
   },
+
 }

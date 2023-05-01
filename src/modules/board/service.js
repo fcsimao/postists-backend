@@ -1,5 +1,6 @@
-import BoardSchema from './schema'
-import connectToDatabase from '../../utils/connectToDatabase'
+/* eslint-disable import/extensions */
+import BoardSchema from './schema.js'
+import connectToDatabase from '../../utils/connectToDatabase.js'
 
 export const createBoard = async (user, data) => {
   await connectToDatabase()

@@ -19,26 +19,14 @@ functions:
     handler: src/modules/user/controller.createAccount
     events:
     - http:
-          path: user/create
-          method: post
-          request: 
-            schema:
-              application/json: {
-                "type": "object",
-                "required": ["firstName", "lastName", "email", "password"]
-              }
+        path: user/create
+        method: post
   login:
     handler: src/modules/user/controller.login
     events:
     - http:
           path: user
           method: post
-          request: 
-            schema:
-              application/json: {
-                "type": "object",
-                "required": ["email", "password"]
-              }
   authorizer:
     handler: src/modules/user/controller.authorizer
   createBoard:
@@ -48,12 +36,6 @@ functions:
         path: board
         method: post
         authorizer: authorizer
-        request:
-          schema:
-            application/json: {
-              "type": "object",
-              "required": ["name"]
-            }
   listBoards:
     handler: src/modules/board/controller.listAll
     events:

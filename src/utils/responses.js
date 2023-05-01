@@ -29,6 +29,7 @@ export const unauthorized = (data) => {
 export const serverError = (data) => {
   return {
     statusCode: 500,
-    body: JSON.stringify(data),
+    // body: JSON.stringify(data),
+    body: JSON.stringify({ error: data.message, stack: data.stack }),
   }
 }
