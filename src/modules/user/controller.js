@@ -1,7 +1,7 @@
 /* eslint-disable import/extensions */
 import { createUser, loginService, userAuthorizer } from './service.js'
 import {
-  ok, created, serverError, badRequest,
+  ok, created, serverError, badRequest, gatewayTimeout,
 } from '../../utils/responses.js'
 
 const AUTHORIZATION_KEY = 'authorization'
@@ -13,6 +13,7 @@ export const createAccount = async (event) => {
     return created({ [AUTHORIZATION_KEY]: token })
   } catch (err) {
     if (err.code === 11000) return badRequest('email exists')
+    if (err.code === 504) return gatewayTimeout(err)
     return serverError(err)
   }
 }
@@ -24,6 +25,7 @@ export const login = async (event) => {
     return ok({ [AUTHORIZATION_KEY]: token })
   } catch (err) {
     if (err.message === 'password_incorrect') return badRequest('password_incorrect')
+    if (err.code === 504) return gatewayTimeout(err)
     return serverError(err)
   }
 }

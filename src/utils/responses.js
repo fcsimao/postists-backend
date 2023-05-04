@@ -33,3 +33,11 @@ export const serverError = (data) => {
     body: JSON.stringify({ error: data.message, stack: data.stack }),
   }
 }
+
+export const gatewayTimeout = (data) => {
+  return {
+    statusCode: 504,
+    // body: JSON.stringify(data),
+    body: JSON.stringify({ error: data.message, stack: data.stack }),
+  }
+}
