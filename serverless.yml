@@ -27,12 +27,14 @@ functions:
     - http:
         path: user/create
         method: post
+        cors: true
   login:
     handler: src/modules/user/controller.login
     events:
     - http:
           path: user
           method: post
+          cors: true
   authorizer:
     handler: src/modules/user/controller.authorizer
   createBoard:
@@ -41,6 +43,7 @@ functions:
     - http:
         path: board
         method: post
+        cors: true
         authorizer: authorizer
   listBoards:
     handler: src/modules/board/controller.listAll
@@ -48,6 +51,7 @@ functions:
     - http:
         path: board/all
         method: get
+        cors: true
         authorizer: authorizer
   getBoard:
     handler: src/modules/board/controller.get
@@ -55,6 +59,7 @@ functions:
     - http:
         path: board
         method: get
+        cors: true
         authorizer: authorizer
   updateBoard:
     handler: src/modules/board/controller.put
@@ -62,6 +67,7 @@ functions:
     - http:
         path: board
         method: put
+        cors: true
         authorizer: authorizer
   deleteBoard:
     handler: src/modules/board/controller.deleteController
@@ -69,4 +75,17 @@ functions:
     - http:
         path: board
         method: delete
+        cors: true
         authorizer: authorizer
+
+resources:
+  Resources:
+    GatewayResponseDefault4xx:
+      Type: 'AWS::ApiGateway::GatewayResponse'
+      Properties:
+        ResponseParameters:
+          gatewayresponse.header.Access-Control-Allow-Origin: "'*'"
+          gatewayresponse.header.Access-Control-Allow-Headers: "'*'"
+        ResponseType: DEFAULT_4XX
+        RestApiId:
+          Ref: 'ApiGatewayRestApi'
