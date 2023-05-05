@@ -1,7 +1,6 @@
 const headers = {
-  'Access-control-Allow-Origin': `${process.env.SITE_URL}`,
-  'Access-control-Allow-Credentials': true,
-
+  'Access-Control-Allow-Origin': `${process.env.SITE_URL}`,
+  'Access-Control-Allow-Credentials': true,
 }
 
 export const ok = (data) => {
