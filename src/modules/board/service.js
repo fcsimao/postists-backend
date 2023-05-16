@@ -6,6 +6,7 @@ export const createBoard = async (user, data) => {
   await connectToDatabase()
   return BoardSchema.create({
     name: data.name,
+    assunto: data.assunto,
     owner: user.id,
     createdDate: new Date(),
     updatedDate: new Date(),
@@ -16,7 +17,7 @@ export const listBoards = async (user) => {
   await connectToDatabase()
   return BoardSchema.find({ owner: user.id })
     .limit(6)
-    .select('name updatedDate')
+    .select('name assunto updatedDate')
     .lean()
     .exec()
 }

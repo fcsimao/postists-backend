@@ -4,7 +4,8 @@ import {
   created, ok, serverError,
 } from '../../utils/responses.js'
 import {
-  createBoard, listBoards, getBoard, updateBoard, deleteBoard,
+  createBoard,
+  listBoards, getBoard, updateBoard, deleteBoard,
 } from './service.js'
 
 export const create = async (event) => {
